@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    //MARK: Properties
+    @State private var playerCard = "card4"
+    @State private var cpuCard = "card6"
+    @State private var playerScore = 0
+    @State private var cpuScore = 0
+    private let backgroundImage = "background"
+    private let logoImage = "logo"
+
+    
     var body: some View {
         VStack{
-            Image("logo").resizable().aspectRatio(contentMode: .fit)
+            Image(logoImage).resizable().aspectRatio(contentMode: .fit)
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: 170, height: 150)
             Text("WAR GAME").font(.headline)
@@ -18,14 +27,14 @@ struct ContentView: View {
             Spacer()
             HStack{
                 Spacer()
-                Image("card2")
+                Image(playerCard)
                 Spacer()
-                Image("card12")
+                Image(cpuCard)
                 Spacer()
             }
             Spacer()
             Button {
-                
+                //
             } label: {
                 Image("dealbutton").padding()
             }
@@ -35,20 +44,20 @@ struct ContentView: View {
                 VStack{
                     Text("Player").font(.title)
                         .padding(.bottom,10)
-                    Text("0").font(.largeTitle)
+                    Text("\(playerScore)").font(.largeTitle)
 
                 }
                 Spacer()
                 VStack{
                     Text("Computer").font(.title)
                         .padding(.bottom,10)
-                    Text("0").font(.largeTitle)
+                    Text("\(cpuScore)").font(.largeTitle)
                 }
                 Spacer()
             }
         }
         .background(
-                Image("background")
+                Image(backgroundImage)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
             )
