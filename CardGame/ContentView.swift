@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     //MARK: Properties
-    @State private var playerCard = "card4"
-    @State private var cpuCard = "card6"
+    @State private var playerCard = "back"
+    @State private var cpuCard = "back"
     @State private var playerScore = 0
     @State private var cpuScore = 0
     private let backgroundImage = "background"
@@ -35,6 +35,18 @@ struct ContentView: View {
                 //Generate random numbers for images
                 let playerRand = randomImage()
                 let cpuRand = randomImage()
+                
+                //Update Cards
+                playerCard = "card" + String(playerRand)
+                cpuCard = "card" + String(cpuRand)
+                
+                //Update Scores
+                if(playerRand > cpuRand){
+                    playerScore += 1
+                }
+                else if(playerRand < cpuRand){
+                    cpuScore += 1
+                }
             } label: {
                 Image("dealbutton").padding()
             }
