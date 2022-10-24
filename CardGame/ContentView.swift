@@ -15,7 +15,6 @@ struct ContentView: View {
     @State private var cpuScore = 0
     private let backgroundImage = "background"
     private let logoImage = "logo"
-
     
     var body: some View {
         VStack{
@@ -23,7 +22,6 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: 170, height: 150)
             Text("WAR GAME").font(.headline)
-            
             Spacer()
             HStack{
                 Spacer()
@@ -34,7 +32,9 @@ struct ContentView: View {
             }
             Spacer()
             Button {
-                //
+                //Generate random numbers for images
+                let playerRand = randomImage()
+                let cpuRand = randomImage()
             } label: {
                 Image("dealbutton").padding()
             }
@@ -45,7 +45,6 @@ struct ContentView: View {
                     Text("Player").font(.title)
                         .padding(.bottom,10)
                     Text("\(playerScore)").font(.largeTitle)
-
                 }
                 Spacer()
                 VStack{
@@ -62,6 +61,10 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.all)
             )
         .foregroundColor(Color.white)
+    }
+    func randomImage() -> Int{
+        let randNum = Int.random(in: 2...14)
+        return randNum
     }
 }
 
