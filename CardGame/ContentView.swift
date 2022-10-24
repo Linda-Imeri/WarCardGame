@@ -50,6 +50,16 @@ struct ContentView: View {
             } label: {
                 Image("dealbutton").padding()
             }
+            Button {
+                //Start again
+                playerCard = "back"
+                cpuCard = "back"
+                playerScore = 0
+                cpuScore = 0 
+            } label: {
+                Image("restart").resizable()
+                    .frame(width: 50, height: 50)
+            }
             Spacer()
             HStack{
                 Spacer()
