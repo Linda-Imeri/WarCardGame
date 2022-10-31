@@ -1,2 +1,2 @@
 # WarCardGame
-This app is a Card Game bwtween user and PC.
+This app is a Card Game between user and PC.
